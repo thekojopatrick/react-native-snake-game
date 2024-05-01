@@ -17,7 +17,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { router } from 'expo-router';
 
-const logo = require('../assets/images/icon.png');
+export const logo = require('../assets/images/icon.png');
 
 const DURATION = 1000;
 const DELAY = 500;
@@ -29,7 +29,7 @@ const Onboarding = () => {
 	const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = useWindowDimensions();
 
 	const loadingTextAnimationStyle = useAnimatedStyle(() => {
-		opacity.value = withDelay(0 * DELAY, withTiming(0, { duration: DURATION }));
+		opacity.value = withDelay(1 * DELAY, withTiming(1, { duration: DURATION }));
 		return {
 			opacity: opacity.value,
 		};

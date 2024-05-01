@@ -14,13 +14,19 @@ type Props = {
 	handlePress: () => void;
 	buttonVal?: SharedValue<number>;
 	title: string;
+	position?: 'relative' | 'absolute';
 };
 const btnImage = require('../assets/images/button-bg.png');
 
-const CustomButton = ({ handlePress, buttonVal, title }: Props) => {
+const CustomButton = ({
+	handlePress,
+	buttonVal,
+	title,
+	position = 'absolute',
+}: Props) => {
 	return (
 		<TouchableWithoutFeedback onPress={handlePress}>
-			<View style={styles.container}>
+			<View style={{ ...styles.container, position: position }}>
 				<ImageBackground source={btnImage} style={[styles.buttonImage]}>
 					<View style={styles.buttonStyle}>
 						<Text style={styles.buttonText}>{title}</Text>
