@@ -23,7 +23,7 @@ const App = () => (
 			<View style={styles.menuContainer}>
 				<CustomButton
 					handlePress={() => {
-						router.push('/play');
+						router.replace('/player-menu');
 					}}
 					title='Play'
 					position='relative'
