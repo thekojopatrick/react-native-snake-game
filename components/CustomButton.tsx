@@ -1,8 +1,10 @@
 import {
 	Dimensions,
 	ImageBackground,
+	Pressable,
 	StyleSheet,
 	Text,
+	TouchableOpacity,
 	TouchableWithoutFeedback,
 	View,
 } from 'react-native';

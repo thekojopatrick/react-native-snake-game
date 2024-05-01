@@ -24,6 +24,7 @@ const SelectPlayer = () => {
 					/>
 					<CustomButton
 						handlePress={() => {
+							console.log('on press');
 							router.replace('/play');
 						}}
 						title='Patrick'
