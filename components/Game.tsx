@@ -24,6 +24,7 @@ const Game = () => {
 	const [isGameOver, setIsGameOver] = useState<boolean>(false);
 	const [isPaused, setIsPaused] = useState<boolean>(false);
 	const [score, setScore] = useState<number>(0);
+	const [gameOverText, setGameOverText] = useState('');
 
 	useEffect(() => {
 		if (!isGameOver) {
@@ -60,11 +61,12 @@ const Game = () => {
 
 	const moveSnake = () => {
 		const snakeHead = snake[0];
-		const newHead = { ...snakeHead }; // CREATIG A COPY
+		const newHead = { ...snakeHead }; // CREATING A COPY
 
 		//Game over
 		if (checkGameOver(snakeHead, GAME_BOUNDS)) {
 			setIsGameOver((prevState) => !prevState);
+			setGameOverText('Game Over');
 			return;
 		}
 
@@ -130,6 +132,18 @@ const Game = () => {
 					</Text>
 				</Header>
 				<View style={styles.boundaries}>
+					{isGameOver && (
+						<Text
+							style={[
+								styles.gameOverText,
+								{
+									transform: [{ scale: 2 }, { translateX: -50 }],
+								},
+							]}
+						>
+							Game Over
+						</Text>
+					)}
 					<Snake snake={snake} />
 					<Food x={food.x} y={food.y} />
 				</View>
@@ -147,10 +161,24 @@ const styles = StyleSheet.create({
 	},
 	boundaries: {
 		flex: 1,
-		borderColor: Colors.light.primary,
-		borderWidth: 12,
-		borderBottomLeftRadius: 30,
-		borderBottomRightRadius: 30,
+		margin: 12,
+		borderRadius: 30,
+		borderColor: '#B57BFE',
+		//borderColor: Colors.light.primary,
+		borderWidth: 2,
+		//borderBottomLeftRadius: 30,
+		//borderBottomRightRadius: 30,
 		backgroundColor: Colors.light.background,
+	},
+	gameOverText: {
+		position: 'absolute',
+		flex: 1,
+		top: '40%',
+		//left: '50%',
+		right: '10%',
+		//bottom: 10,
+		fontSize: 22,
+		fontWeight: 'bold',
+		color: 'red',
 	},
 });

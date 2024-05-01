@@ -1,9 +1,9 @@
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
-const primaryColor = '#365314';
+const primaryColor = '#6C62E5';
 const secondaryColor = '#84cc16';
 const tertiaryColor = '#eab308';
-const backgroundColor = '#ecfccb';
+const backgroundColor = '#fff';
 
 export default {
 	light: {

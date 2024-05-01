@@ -10,7 +10,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const App = () => (
 	<>
-		<Stack.Screen options={{ title: 'Home' }} />
+		<Stack.Screen options={{ title: 'Play', headerShown: false }} />
 		<Game />
 		<StatusBar hidden />
 	</>
