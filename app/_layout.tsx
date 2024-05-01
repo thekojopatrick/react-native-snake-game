@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import * as SplashScreen from 'expo-splash-screen';
 
 import {
@@ -7,6 +9,8 @@ import {
 } from '@react-navigation/native';
 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useEffect } from 'react';
@@ -53,11 +57,19 @@ function RootLayoutNav() {
 	const colorScheme = useColorScheme();
 
 	return (
-		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-			<Stack>
-				<Stack.Screen name='index' options={{ headerShown: false }} />
-				<Stack.Screen name='modal' options={{ presentation: 'modal' }} />
-			</Stack>
-		</ThemeProvider>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+				<Stack>
+					<Stack.Screen
+						name='index'
+						options={{
+							headerShown: false,
+							statusBarHidden: Platform.OS === 'android' ? true : false,
+						}}
+					/>
+					<Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+				</Stack>
+			</ThemeProvider>
+		</GestureHandlerRootView>
 	);
 }
