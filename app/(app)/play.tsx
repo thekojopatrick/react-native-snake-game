@@ -1,5 +1,6 @@
 import Game from '@/components/Game';
 import React from 'react';
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 
@@ -10,8 +11,9 @@ import { View } from 'react-native';
 
 const App = () => (
 	<>
+		{/* <Stack.Screen options={{ statusBarHidden: true }} /> */}
 		<Game />
-		<StatusBar style='auto' hidden />
+		<StatusBar hidden />
 	</>
 );
 
